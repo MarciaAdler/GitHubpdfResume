@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script
+    src="https://code.jquery.com/jquery-3.4.1.min.js"
+    integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo="
+    crossorigin="anonymous"></script>
+    <style>
+
+
+        html{
+            text-align: center;
+            background-color: lightblue;
+        }
+        
+        #top {
+            background-color:purple;
+            margin: 50px 100px -10px 100px;;
+            padding-bottom: 30px;
+            color: white;
+            
+        }
+
+        #wrapper {
+            background-color: white;
+            overflow:auto;
+            padding-top:30px;
+        }
+
+        .boxes {
+            background-color: purple;
+            color:white;
+            width: 40%;
+            float:left;
+            margin: 20px;
+        }
+            </style>
+</head>
+<body>
+    <div class="container" id="background">
+        <div id="top">
+            <img id="picture"/>
+            <h1>Hi!</h1>
+            <h2 id="my-name">My Name is Marcia Adler</h2>
+        </div>
+        <section id="wrapper">
+            <h3 id="user-bio">Lorem ipsum dolor sit amet consectetur adipisicing elit.</h3>
+            <div class="boxes" id="repositories">Public repositories</div>
+            <div class="boxes" id="followers">Followers</div>
+            <div class="boxes" id="github-stars">GitHub Stars</div>
+            <div class="boxes" id="following"> Following</div>
+        </section>
+    </div> 
+    <script type="text/javascript" src="index.js"></script>  
+</body>
+</html>
