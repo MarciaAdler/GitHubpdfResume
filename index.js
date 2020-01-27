@@ -21,11 +21,12 @@ inquirer
     .then(function(data) {
         var username = data.name;
         var backgroundColor = data.color;
+        console.log(backgroundColor);
         var queryURL = "https://api.github.com/users/" + username;
         axios.get(
             queryURL,
         ).then(function(response){
-            console.log(response);
+            console.log(data.color);
             var conversion = convertFactory({
                 converterPath: convertFactory.converters.PDF
               });
@@ -39,22 +40,20 @@ inquirer
                 result.stream.pipe(fs.createWriteStream(`./${username}.pdf`));
                 conversion.kill();
             })
+            
         })
 
         
     })
     function createHTML(response, color) {
+       
         var htmlPage = `<!DOCTYPE html>
-        <html lang="en"></html>
+        <html lang="en">
         <head>
             <meta charset="UTF-8">
             <meta name="viewport" content="width=device-width, initial-scale=1.0">
             <meta http-equiv="X-UA-Compatible" content="ie=edge">
             <title>Document</title>
-            <script
-            src="https://code.jquery.com/jquery-3.4.1.min.js"
-            integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo="
-            crossorigin="anonymous"></script>
             <style>
 
 
@@ -65,12 +64,16 @@ inquirer
         
         #top {
             background-color:purple;
-            margin: 50px 100px -10px 100px;;
+            margin: 50px 100px -10px 100px;
             padding-bottom: 30px;
             color: white;
             
         }
-
+        #picture {
+            height: 200px;
+            width: auto;
+            border-radius: 3rem;
+        }
         #wrapper {
             background-color: white;
             overflow:auto;
@@ -78,11 +81,20 @@ inquirer
         }
 
         .boxes {
-            background-color: purple;
+            background-color: #808080;
             color:white;
-            width: 40%;
+            width: 30%;
             float:left;
-            margin: 20px;
+            margin-right: 50px;
+            margin-left: 90px;
+            margin-top: 50px;
+            margin-bottom: 60px;
+            height: 75px;
+            padding-top: 20px;
+            border-radius: .3em; 
+            font-weight: bold;
+            font-size: 1.3em;
+            
         }
             </style>
 
@@ -101,10 +113,10 @@ inquirer
                 </div>
                 <section id="wrapper">
                     <h3 id="user-bio">${response.data.bio}</h3>
-                    <div class="boxes" id="repositories">Public Repositories ${response.data.public_repos}</div>
-                    <div class="boxes" id="followers">Followers ${response.data.followers}</div>
-                    <div class="boxes" id="github-stars">GitHub Stars ${response.data.public_gists}</div>
-                    <div class="boxes" id="following">Following ${response.data.following}</div>
+                    <div class="boxes" id="repositories">Public Repositories<br>${response.data.public_repos}</div>
+                    <div class="boxes" id="followers">Followers<br>${response.data.followers}</div>
+                    <div class="boxes" id="github-stars">GitHub Stars<br>${response.data.public_gists}</div>
+                    <div class="boxes" id="following">Following<br>${response.data.following}</div>
                 </section>
             </div> 
             <script type="text/javascript" src="index.js"></script>  
