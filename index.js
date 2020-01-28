@@ -26,27 +26,36 @@ inquirer
         axios.get(
             queryURL,
         ).then(function(response){
-            console.log(data.color);
-            var conversion = convertFactory({
-                converterPath: convertFactory.converters.PDF
-              });
-               
-              conversion({ html: createHTML(response, backgroundColor) }, function(err, result) {
-                if (err) {
-                  return console.error(err);
-                }
-                console.log(result.numberOfPages);
-                console.log(result.logs);
-                result.stream.pipe(fs.createWriteStream(`./${username}.pdf`));
-                conversion.kill();
+            const queryURL = "https://api.github.com/users/" + username + "/repos"
+            axios.get(
+                queryURL,
+            ).then(function(stars){
+                let starsArr = stars.data;
+                let starCount = 0;
+                starsArr.forEach(stars => {
+                    starCount += stars.stargazers_count;
+                }) 
+                console.log(starCount);
+                var conversion = convertFactory({
+                    converterPath: convertFactory.converters.PDF
+                });
+                
+                conversion({ html: createHTML(response, backgroundColor, starCount) }, function(err, result) {
+                    if (err) {
+                    return console.error(err);
+                    }
+                    console.log(result.numberOfPages);
+                    console.log(result.logs);
+                    result.stream.pipe(fs.createWriteStream(`./${username}.pdf`));
+                    conversion.kill();
+                })
             })
-            
         })
 
         
     })
-    function createHTML(response, color) {
-       
+    function createHTML(response, color, starCount) {
+       console.log(starCount);
         var htmlPage = `<!DOCTYPE html>
         <html lang="en">
         <head>
@@ -124,7 +133,7 @@ inquirer
                     <h3 id="user-bio">${response.data.bio}</h3>
                     <div class="boxes" id="repositories">Public Repositories<br>${response.data.public_repos}</div>
                     <div class="boxes" id="followers">Followers<br>${response.data.followers}</div>
-                    <div class="boxes" id="github-stars">GitHub Stars<br>${response.data.public_gists}</div>
+                    <div class="boxes" id="github-stars">GitHub Stars<br>${starCount}</div>
                     <div class="boxes" id="following">Following<br>${response.data.following}</div>
                 </section>
             </div> 
