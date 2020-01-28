@@ -56,28 +56,39 @@ inquirer
             <title>Document</title>
             <style>
 
+        * {
+            -webkit-print-color-adjust:exact !important; 
+        }
 
-        html{
+        body {
+            
             text-align: center;
             background-color: ${color};
         }
         
+        #background {
+            height: 1100px;
+            background-color: ${color};
+            padding-top: 50px;
+            width: 1000px;
+            margin:0;
+        }
+
         #top {
-            background-color:purple;
+            background-color:lightblue;
             margin: 50px 100px -10px 100px;
-            padding-bottom: 30px;
+            padding-bottom: 50px;
             color: white;
-            
+            border-radius: 1rem;
         }
         #picture {
             height: 200px;
             width: auto;
-            border-radius: 3rem;
+            border-radius: 15rem;
         }
         #wrapper {
             background-color: white;
-            overflow:auto;
-            padding-top:30px;
+            padding-top:10px;
         }
 
         .boxes {
@@ -87,19 +98,17 @@ inquirer
             float:left;
             margin-right: 50px;
             margin-left: 90px;
-            margin-top: 50px;
-            margin-bottom: 60px;
+            margin-top: 30px;
+            margin-bottom: 20px;
             height: 75px;
             padding-top: 20px;
             border-radius: .3em; 
-            font-weight: bold;
             font-size: 1.3em;
-            
         }
             </style>
 
         </head>
-        <body>
+        <body id="container">
             <div class="container" id="background">
                  <div id="top">
                     <img id="picture" src='${response.data.avatar_url}'/>
@@ -119,8 +128,10 @@ inquirer
                     <div class="boxes" id="following">Following<br>${response.data.following}</div>
                 </section>
             </div> 
-            <script type="text/javascript" src="index.js"></script>  
+            
         </body>
         </html>`
+        
         return htmlPage
+        
     }

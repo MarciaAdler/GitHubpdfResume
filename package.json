@@ -1,5 +1,5 @@
 {
-  "name": "GitHubpdfResume",
+  "name": "githubpdfresume",
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
@@ -10,7 +10,6 @@
     "type": "git",
     "url": "git+https://github.com/MarciaAdler/GitHubpdfResume.git"
   },
-  "keywords": [],
   "author": "",
   "license": "ISC",
   "bugs": {
@@ -19,8 +18,8 @@
   "homepage": "https://github.com/MarciaAdler/GitHubpdfResume#readme",
   "dependencies": {
     "axios": "^0.19.2",
-    "electron": "^5.0.13",
+    "electron": "^5.0.3",
     "electron-html-to": "^2.6.0",
-    "inquirer": "^7.0.3"
+    "inquirer": "^7.0.4"
   }
 }
