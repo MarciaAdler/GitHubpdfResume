@@ -98,6 +98,9 @@ inquirer
         #wrapper {
             background-color: white;
             padding-top:10px;
+            height:auto;
+            overflow: auto;
+            padding-bottom: 30px;
         }
 
         .boxes {
@@ -114,6 +117,8 @@ inquirer
             border-radius: .3em; 
             font-size: 1.3em;
         }
+        
+       
             </style>
 
         </head>
