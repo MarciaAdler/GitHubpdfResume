@@ -64,7 +64,7 @@ inquirer
             <meta http-equiv="X-UA-Compatible" content="ie=edge">
             <title>Document</title>
             <style>
-
+        
         * {
             -webkit-print-color-adjust:exact !important; 
         }
@@ -82,7 +82,7 @@ inquirer
             width: 1000px;
             margin:0;
         }
-
+        
         #top {
             background-color:lightblue;
             margin: 50px 100px -10px 100px;

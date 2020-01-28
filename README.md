@@ -28,4 +28,4 @@ The generated resume includes the number of: public repositories, followers, Git
 The background color of the generated PDF matches the color that the user provides.
 
 
-![PDF generator GIF](./NodeJShomeworkGif.mov)
+![PDF generator GIF](./NodeJShomeworkGif.gif)
